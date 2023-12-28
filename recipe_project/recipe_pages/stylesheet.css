@@ -1,0 +1,43 @@
+/** {*/
+/*    border: 2px orange solid;*/
+/*}*/
+body {
+    background-color: rgb(240, 240, 240);
+    font-family: sans-serif Candara Helvetica;
+    font-size: medium;
+    text-decoration: none;
+}
+
+.mainDiv{
+    width: 800px;
+    height: auto;
+    margin: auto;
+    background-color: rgb(245, 245, 245);
+    padding: 8px 16px;
+}
+
+.image {
+    width: 400px;
+    height: auto;
+    display: block;
+    margin: auto;
+    border-radius: 3%;
+    padding: 8px;
+}
+
+.listItems{
+    background-color: rgba(240,240,240, 1);
+    padding: 16px;
+    border-radius: 5%;
+    margin: 24px;
+}
+
+li:not(:last-child){
+    margin-bottom: 10px;
+}
+
+.header{
+    display: block;
+    padding: 8px;
+}
+

@@ -1,0 +1,46 @@
+/** {*/
+/*    border: 2px solid GREEN;*/
+/*}*/
+
+.mainDiv{
+    margin: 0 auto;
+    justify-content: center;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    width: 600px;
+    background-color: rgba(245,245,245, 0.7);
+    border-radius: 5%;
+}
+
+h1{
+    padding: 0 0 0 32px;
+}
+
+.image{
+    margin: auto;
+    display: block;
+}
+
+ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+li{
+    display: inline;
+}
+
+a:link{
+    text-decoration: none;
+}
+
+a:visited{
+    color: inherit;
+}
+
+a:hover{
+    color: forestgreen;
+}
+

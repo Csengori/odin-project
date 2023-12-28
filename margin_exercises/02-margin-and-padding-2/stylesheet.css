@@ -2,9 +2,6 @@ body {
     background: #eee;
     font-family: sans-serif;
 }
-* {
-    border: 2px solid GREEN;
-}
 
 .card {
     width: 400px;
