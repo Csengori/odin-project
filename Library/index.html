@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<header class="header">
+    <h1 class="header__title">library project</h1>
+</header>
+<body class="body">
+<main class="main">
+    <button class="main__btn">Add book</button>
+    <div class="main__grid"></div>
+</main>
+<div class="modal__overlay">
+    <div class="modal">
+        <form class="modal__form">
+            <h3 class="modal__title">Add new book</h3>
+            <input
+                    class="modal__input modal__input--title input"
+                    placeholder="Title"
+                    required
+                    maxlength="90"
+                    type="text" />
+            <input
+                    class="modal__input modal__input--autor input"
+                    placeholder="Autor"
+                    required
+                    maxlength="90"
+                    type="text" />
+            <input
+                    class="modal__input modal__input--pages input"
+                    placeholder="Pages"
+                    required
+                    max="99999"
+                    type="number" />
+            <div class="modal__read">
+                <label class="modal__read--label" for="read"
+                >Have you read it?</label
+                >
+                <input class="modal__read--input input" id="read" type="checkbox" />
+            </div>
+            <button class="modal__btn">Submit</button>
+        </form>
+    </div>
+</div>
+</body>
+<script src="scripts/library.js"></script>
+</html>
