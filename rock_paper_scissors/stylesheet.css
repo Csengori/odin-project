@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins';
+}
+img {
+    height: 100%;
+    width: 100%;
+
+}
+header {
+    font-size: 72px;
+    font-family: 'bungee spice';
+    margin-bottom: 75px;
+    margin-top: 50px;
+
+}
+html {
+    height: 100%;
+}
+body {
+    margin: 0;
+    background-attachment: fixed:
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    background: rgb(66,84,105);
+    background: background-color: #494d5b;
+    text-align: center;
+    background-image: cover;
+    background-repeat: no-repeat;
+}
+button {
+    align-self: center;
+    border-radius: 12px;
+    border: none;
+    background: #eaeaea;
+    height: 275px;
+    width: 275px;
+}
+
+button#reset{
+    width: 172px;
+    height: 70px;
+    display: none;
+}
+
+button#reset:hover{
+    font-size: 24px;
+    transition: 0.2s linear;
+    cursor: pointer;
+}
+img:hover {
+    border: 2px solid #ece6e2;
+    background-color: #424769;
+    transition: 0.2s linear;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.score-container {
+    display: flex;
+    justify-content: center;
+    font-size: 32px:
+    padding: 20px;
+    gap: 50px;
+}
+.score-container p{
+    width: 50%;
+    margin: 12px;
+    font-size: 24px;
+
+}
+.selection {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    width: 100%;
+}
+.selection p{
+    font-family: 'bungee spice';
+    font-size: 32px;
+}
+.winners {
+    padding: 20px;
+    font-size: 32px;
+}

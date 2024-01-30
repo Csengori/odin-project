@@ -1,0 +1,75 @@
+/* Make it look nice! */
+* {
+    /* background-color: grey; */
+    background-image: url('calcbg.jpg');
+    background-size: cover;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#calc-wrapper {
+    display: grid;
+    background-image: url('calcbg2.jpg');
+    box-shadow: 10px 10px 10px;
+    height: 485px;
+    width: 381px;
+    border: 1px solid white;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+
+.display {
+    display: block;
+    opacity: 0.5;
+    background: white;
+    border: 1px solid black;
+    height: 80px;
+    width: 361px;
+    margin: 10px;
+    font-size: 70px;
+    text-align: right;
+}
+
+.button-wrapper {
+    display: grid;
+    margin: 10px;
+    grid-template-rows: repeat(5, 70px, );
+    grid-template-columns: repeat(4, 90px);
+    gap: 1px;
+}
+
+button {
+    opacity: 0.5;
+    font-size: 20px;
+    background: white;
+    min-width: 90px;
+    min-height: 70px;
+}
+
+button:hover {
+    background-color: lightgray;
+    opacity: 1;
+}
+
+.misc {
+    background-color: darkgrey;
+    color: black;
+}
+
+.misc:hover {
+    background-color: black;
+    color: white;
+
+}
+
+.operator,
+.equals {
+    background-color: black;
+    color: white;
+}
+
+.operator:hover,
+.equals:hover {
+    color: black;
+}

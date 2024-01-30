@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Etch a Sketch</title>
+    <link rel='stylesheet' href='stylesheet.css'>
+    <script src='etch_a_sketch.js' defer></script>
+    <link rel="icon" type="image/x-icon" href="paint-brush.ico">
+</head>
+<body>
+<header>
+    <h1>Etch a Sketch</h1>
+</header>
+<main>
+    <div>
+        <div id='container' class='container'>
+        </div>
+        <div class='sliderContainer'>
+            <input type='range' min='1' max='100' value='16' class='slider' id='slider'>
+            <p>Grid Size <span id="gridSize">16x16</span></p>
+        </div>
+    </div>
+    <div class='settings'>
+        <input type='color' class='colorPicker' value='#000000' id='colorPicker' name='colorPicker'>
+        <button class='button colorMode' id='colorModeButton'>Color Mode</button>
+        <button class='button rainbowMode' id='rainbowModeButton'>Rainbow Mode</button>
+        <button class='button eraser' id='eraserModeButton'>Eraser</button>
+        <button class='button clear' id='clearButton'>Clear</button>
+    </div>
+</main>
+<footer class='footer'>
+    <a href='https://github.com/csengori' target='_blank'>
+        <p>
+            Copyright
+            &copy;
+            <script>
+                document.write(new Date().getFullYear())
+            </script>
+            Csengori
+        </p>
+    </a>
+</footer>
+</body>
+</html>
