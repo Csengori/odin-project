@@ -1,51 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Library</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Simple Library</title>
 </head>
-<header class="header">
-    <h1 class="header__title">library project</h1>
-</header>
-<body class="body">
-<main class="main">
-    <button class="main__btn">Add book</button>
-    <div class="main__grid"></div>
-</main>
-<div class="modal__overlay">
-    <div class="modal">
-        <form class="modal__form">
-            <h3 class="modal__title">Add new book</h3>
-            <input
-                    class="modal__input modal__input--title input"
-                    placeholder="Title"
-                    required
-                    maxlength="90"
-                    type="text" />
-            <input
-                    class="modal__input modal__input--autor input"
-                    placeholder="Autor"
-                    required
-                    maxlength="90"
-                    type="text" />
-            <input
-                    class="modal__input modal__input--pages input"
-                    placeholder="Pages"
-                    required
-                    max="99999"
-                    type="number" />
-            <div class="modal__read">
-                <label class="modal__read--label" for="read"
-                >Have you read it?</label
-                >
-                <input class="modal__read--input input" id="read" type="checkbox" />
-            </div>
-            <button class="modal__btn">Submit</button>
-        </form>
+<body>
+<h1>Odin book library</h1>
+
+<div class="container">
+  <button id="add-book-btn">Add A Book</button>
+  <div class="add-book hide">
+    <div class="new-book">
+      <form>
+        <label for="title">Title*</label>
+        <input type="text" id="title" name="title" required>
     </div>
+    <div class="new-book">
+      <label for="author">Author</label>
+      <input type="text" id="author" name="author">
+    </div>
+    <div class="new-book">
+      <label for="pages">Volume</label>
+      <input type="number" id="pages" name="pages" min="1" placeholder="1">
+    </div>
+    <div class="new-book">
+      <label for="read">Read</label>
+      <input type="checkbox" name="read" id="read">
+    </div>
+    <button id="submit-btn">Submit</button>
+    </form>
+  </div>
 </div>
-</body>
+<div id="notification" style="display: none;">Book added successfully!</div>
+<div class="book-list">
+  <h3>Book List</h3>
+  <div class="library-container">
+    <table class="book-table">
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Volume</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </table>
+  </div>
+</div>
+
 <script src="scripts/library.js"></script>
+</body>
 </html>

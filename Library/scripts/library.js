@@ -1,107 +1,85 @@
-const grid = document.querySelector(".main_grid");
-const btnElem = document.querySelector(".main__btn");
-const submit = document.querySelector(".modal__btn");
-const modal = document.querySelector(".modal");
-const modalOverlay = document.querySelector(".modal__overlay");
-let myLibrary = [];
-const form = document.querySelector(".modal__form");
-const title = document.querySelector(".modal__input--title");
-const autor = document.querySelector(".modal__input--autor");
-const pages = document.querySelector(".modal__input--pages");
-const read = document.querySelector(".modal__read--input");
+const addBookBtn = document.getElementById('add-book-btn')
+const addBook = document.querySelector('.add-book')
+const submitBtn = document.getElementById('submit-btn')
+const form = document.querySelector("form");
+let checkmarks = document.querySelectorAll(".checkmark");
+const bookTable = document.querySelector(".book-table");
+let deleteBtn = document.querySelectorAll("#delete-btn")
 
-btnElem.addEventListener("click", function (e) {
-    modal.style.visibility = "visible";
-    modalOverlay.style.visibility = "visible";
-});
+let bookLibrary = [];
 
-document.addEventListener("click", function (e) {
-    let miss = e.composedPath().includes(btnElem);
-    let missAgain = e.composedPath().includes(modal);
-    if (!miss && !missAgain) {
-        modal.style.visibility = "hidden";
-        modalOverlay.style.visibility = "hidden";
-    }
-});
 
-function book(title, autor, pages, read) {
+function Book(title, author, pages, read) {
     this.title = title;
-    this.autor = autor;
+    this.author = author;
     this.pages = pages;
     this.read = read;
 }
 
-function addBook() {
-    if (title.value === "" || autor.value === "" || pages.value === "") {
-        return;
-    }
-    if (title.value !== "" || autor.value !== "" || pages.value !== "") {
-        let newBook = new book(title.value, autor.value, pages.value, read.checked);
-        myLibrary.push(newBook);
-        console.log(myLibrary);
-        updateList();
-        clear();
-        modal.style.visibility = "hidden";
-        modalOverlay.style.visibility = "hidden";
-    }
+function addSuccess() {
+    title.value = ''
+    author.value = ''
+    pages.value = ''
+    read.checked = false
+
+    let notification = document.getElementById("notification");
+    notification.style.display = "block";
+
+    // Hide the notification after 3 seconds
+    setTimeout(function () {
+        notification.style.display = "none";
+    }, 3000);
 }
 
-submit.addEventListener("click", function (e) {
-    addBook();
-    clear();
-    form.reset();
-});
 
-function clear() {
-    title.value = "";
-    autor.value = "";
-    pages.checked = false;
+function addBookToLibrary() {
+    let title = document.getElementById('title').value;
+    let author = document.getElementById("author").value;
+    let pages = document.getElementById("pages").value;
+    let read = document.getElementById("read").checked;
+
+    let newBook = new Book(title, author, pages, read);
+    bookLibrary.push(newBook)
+    addSuccess()
+    updateBookList()
 }
 
-function updateList() {
-    grid.innerHTML = "";
-    myLibrary.forEach((book) => {
-        const bookTitle = document.createElement("h1");
-        const bookAuthor = document.createElement("p");
-        const bookPages = document.createElement("p");
+function updateBookList() {
+    bookTable.innerHTML = "";
 
-        const bookIsRead = document.createElement("label");
-        bookIsRead.setAttribute("for", "is-read");
+    for (let i = 0; i < bookLibrary.length; i++) {
+        let bookEl = document.createElement("tr");
+        let readStatus = bookLibrary[i].read ? "Read" : "Unread";
+        bookEl.innerHTML = `
+              <td>${bookLibrary[i].title}</td>
+              <td>${bookLibrary[i].author}</td>
+              <td>${bookLibrary[i].pages}</td>
+              <td class="checkmark">${readStatus}</td>
+              <td><button class="delete-btn">Delete</button></td>`;
+        bookTable.appendChild(bookEl);
 
-        const bookCheck = document.createElement("input");
-        bookCheck.setAttribute("type", "checkbox");
-        bookCheck.setAttribute("id", "is-read");
-
-        const bookDiv = document.createElement("div");
-        const delButton = document.createElement("button");
-
-        bookTitle.innerHTML = "Title: " + book.title;
-        bookAuthor.innerHTML = "Author: " + book.autor;
-        bookPages.innerHTML = "Pages: " + book.pages;
-        bookIsRead.innerHTML = "Read?";
-        delButton.innerHTML = "Delete";
-
-        bookDiv.classList.add("book__card");
-        delButton.classList.add("btn__delete");
-
-        bookDiv.appendChild(bookTitle);
-        bookDiv.appendChild(bookAuthor);
-        bookDiv.appendChild(bookPages);
-        bookDiv.appendChild(bookIsRead);
-        bookDiv.appendChild(bookCheck);
-        bookDiv.appendChild(delButton);
-        grid.appendChild(bookDiv);
-
-        delButton.addEventListener("click", () => {
-            deleteBook(book.title);
-            bookDiv.remove();
+        bookEl.querySelector(".checkmark").addEventListener("click", function () {
+            bookLibrary[i].read = !bookLibrary[i].read;
+            updateBookList(); // Update the book list to reflect the new read status
         });
-    });
+
+        bookEl.querySelector(".delete-btn").addEventListener("click", function () {
+            bookLibrary.splice(i, 1); // Remove the book from the array
+            updateBookList(); // Update the book list to reflect the deleted book
+        });
+    }
 }
 
-function deleteBook(title) {
-    myLibrary = myLibrary.filter((book) => {
-        return book.title !== title;
-    });
-    console.log(myLibrary);
-}
+
+
+
+addBookBtn.addEventListener('click', () => addBook.classList.toggle('hide'))
+
+submitBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    if (form.checkValidity()) {
+        addBookToLibrary();
+    } else {
+        alert("Please fill out all required fields");
+    }
+});
