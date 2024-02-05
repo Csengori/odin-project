@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Simple Library</title>
+</head>
+<body>
+<h1>Odin book library</h1>
+
+<div class="container">
+  <button id="add-book-btn">Add A Book</button>
+  <div class="add-book hide">
+    <div class="new-book">
+      <form>
+        <label for="title">Title*</label>
+        <input type="text" id="title" name="title" required>
+    </div>
+    <div class="new-book">
+      <label for="author">Author</label>
+      <input type="text" id="author" name="author">
+    </div>
+    <div class="new-book">
+      <label for="pages">Volume</label>
+      <input type="number" id="pages" name="pages" min="1" placeholder="1">
+    </div>
+    <div class="new-book">
+      <label for="read">Read</label>
+      <input type="checkbox" name="read" id="read">
+    </div>
+    <button id="submit-btn">Submit</button>
+    </form>
+  </div>
+</div>
+<div id="notification" style="display: none;">Book added successfully!</div>
+<div class="book-list">
+  <h3>Book List</h3>
+  <div class="library-container">
+    <table class="book-table">
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Volume</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<script src="scripts/library.js"></script>
+</body>
+</html>
